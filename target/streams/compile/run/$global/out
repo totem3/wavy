@@ -1,0 +1,12 @@
+[0m[[0minfo[0m] [0mRunning Wavy [0m
+[0m[[0mdebug[0m] [0mStarting sandboxed run...[0m
+[0m[[0mdebug[0m] [0mWaiting for threads to exit or System.exit to be called.[0m
+[0m[[0mdebug[0m] [0m  Classpath:[0m
+[0m[[0mdebug[0m] [0m	/Users/hiratatakafumi/github/wavy/target/scala-2.9.1/classes[0m
+[0m[[0mdebug[0m] [0m	/Users/hiratatakafumi/.sbt/boot/scala-2.9.1/lib/scala-library.jar[0m
+[0m[[0mdebug[0m] [0m	/Users/hiratatakafumi/.ivy2/cache/org.twitter4j/twitter4j-core/jars/twitter4j-core-2.2.5.jar[0m
+[0m[[0mdebug[0m] [0mWaiting for thread run-main to exit[0m
+[0m[[0mdebug[0m] [0m	Thread run-main exited.[0m
+[0m[[0mdebug[0m] [0mInterrupting remaining threads (should be all daemons).[0m
+[0m[[0mdebug[0m] [0mSandboxed run complete..[0m
+[0m[[0mdebug[0m] [0mExited with code 0[0m
