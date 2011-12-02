@@ -3,6 +3,7 @@
 /project/boot
 /.*
 
+config
 *.class
 *.log
-
+.DS_Store
