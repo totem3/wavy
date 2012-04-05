@@ -5,8 +5,8 @@ object Wavy extends OAuth {
   val twitterStream = new TwitterStreamFactory().getInstance
 
   def main(args:Array[String]) = {
-    tryAuth
-    stream
+    tryAuth()
+    stream()
     def loop {
       val in = readLine
       in match {
@@ -19,12 +19,12 @@ object Wavy extends OAuth {
     loop
   }
 
-  def quit = {
+  def quit():Unit = {
     println("Quit")
     twitterStream.shutdown
   }
 
-  def public = {
+  def public():Unit = {
     println("Public Timeline")
     val public = twitter.getPublicTimeline
     for(i<- (0 until public.size).reverse) {
@@ -33,7 +33,7 @@ object Wavy extends OAuth {
     }
   }
 
-  def friend = {
+  def friend():Unit = {
     println("Friends Timeline")
     val friend = twitter.getHomeTimeline
     for(i<- (0 until friend.size).reverse) {
@@ -42,7 +42,7 @@ object Wavy extends OAuth {
     }
   }
 
-  def update(status:String) = {
+  def update(status:String):Unit = {
     println("update this?[y/N]: "+status)
     val yn = readLine
     yn match { 
@@ -51,7 +51,7 @@ object Wavy extends OAuth {
     }
   }
 
-  def stream = {
+  def stream():Unit = {
     twitterStream.setOAuthAccessToken(accessToken)
     val listener = new UserStreamListener() {
       def onStatus(status:Status) = {
@@ -97,5 +97,9 @@ object Wavy extends OAuth {
 
     twitterStream.addListener(listener)
     twitterStream.user
+  }
+
+  def retweet():Unit = {
+    
   }
 }

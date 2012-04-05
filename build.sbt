@@ -1,7 +1,3 @@
-import AssemblyKeys._
-
-seq(assemblySettings: _*)
-
 name := "wavy"
 
 version := "0.1"
