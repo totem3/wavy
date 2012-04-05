@@ -3,9 +3,10 @@ import twitter4j._
 object Wavy extends OAuth {
   val twitter = new TwitterFactory().getInstance
   val twitterStream = new TwitterStreamFactory().getInstance
+  val cache:scala.collection.mutable.Map[String, Status] = scala.collection.mutable.Map.empty
 
   def main(args:Array[String]) = {
-    tryAuth()
+    tryAuth
     stream()
     def loop {
       val in = readLine
