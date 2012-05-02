@@ -4,6 +4,7 @@ object Wavy extends OAuth {
   val twitter = new TwitterFactory().getInstance
   val twitterStream = new TwitterStreamFactory().getInstance
   val cache:scala.collection.mutable.Map[String, Status] = scala.collection.mutable.Map.empty
+  val initialVar = "aa"
 
   def main(args:Array[String]) = {
     tryAuth
@@ -56,7 +57,8 @@ object Wavy extends OAuth {
     twitterStream.setOAuthAccessToken(accessToken)
     val listener = new UserStreamListener() {
       def onStatus(status:Status) = {
-        println("@" + status.getUser().getScreenName() +
+	    setVar(status)
+	    println("[$"+cache.keys.reduceLeft((x,y) => (if (x>y) x else y)) +"] @" + status.getUser().getScreenName() +
                 " - " + status.getText())
       }
   
@@ -102,5 +104,13 @@ object Wavy extends OAuth {
 
   def retweet():Unit = {
     
+  }
+
+  def setVar(status:Status) = {
+    val value = cache match {
+      case n if n == Map.empty => "aa"
+      case n => IdVar.next(cache.keys.reduceLeft((x,y) => (if (x>y) x else y)))
+    }
+    cache.put(value, status)
   }
 }
