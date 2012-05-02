@@ -3,13 +3,13 @@ import org.scalatest.FunSuite
 class IdVarTest extends FunSuite {
  
   test("next should return next var") {
-    val result = IdVar.next(Var("aa")) 
-    assert(result.name === "ab")
+    val result = IdVar.next("aa") 
+    assert(result === "ab")
   }
 
   test("next of xz should be (x+1)a") {
-    val result = IdVar.next(Var("az"))
-    assert(result.name === "ba")
+    val result = IdVar.next("az")
+    assert(result === "ba")
   }
 
   test("nextChar should return (c+1)") {
