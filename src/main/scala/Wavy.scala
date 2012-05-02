@@ -93,7 +93,9 @@ object Wavy extends OAuth {
         ex.printStackTrace()
       }
       def onFriendList(friendIds:Array[Long]) = {}
-      def onFavorite(source:User, target:User, favoritedStatus:Status) = {}
+      def onFavorite(source:User, target:User, favoritedStatus:Status) = {
+	    println(source.getScreenName() + " favorited " + target.getScreenName() + "'s tweet: " + favoritedStatus.getText())
+      }
       def onUnfavorite(source:User, target:User, unfavoritedStatus:Status) = {}
       def onFollow(source:User, followedUser:User) = {}
       def onRetweet(source:User, target:User, retweetedStatus:Status) = {}
