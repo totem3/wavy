@@ -12,13 +12,25 @@ object Wavy extends OAuth {
     def loop {
       val in = readLine
       in match {
-	case "q" => quit
-	case "public" => public; loop
-	case "friend" => friend; loop
-	case n => update(n); loop
+	    case "q" => quit
+	    case "public" => public; loop
+    	case "friend" => friend; loop
+        case n if (n.split(" ").length == 2 && n.split(" ")(0) == "f" && n.split(" ")(1).startsWith("$"))=> favorite(n.split(' ')(1).tail); loop
+        case n if (n.split(" ").length == 2 && n.split(" ")(0) == "rt" && n.split(" ")(1).startsWith("$"))=> retweet(n.split(' ')(1).tail); loop
+	    case n => update(n); loop
       }
     }
     loop
+  }
+
+  def favorite(s: String):Unit = {
+    val id = cache.get(s).get.getId
+    twitter.createFavorite(id)
+  }
+
+  def retweet(s: String):Unit = {
+    val id = cache.get(s).get.getId
+    twitter.retweetStatus(id)
   }
 
   def quit():Unit = {
